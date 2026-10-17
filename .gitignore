@@ -1,0 +1,6 @@
+# Dev-only peer shims so a directory/link install resolves @deepseek-ai/* from
+# the local profile; never publish these.
+node_modules/
+
+# Local build output.
+*.tgz

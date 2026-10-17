@@ -1,0 +1,24 @@
+# The dsh-autocontinue bundle patch: one row, inserted after the base and mode
+# layers. Override this row by id from a profile's own cordis.patch.yml (a patch
+# replaces the whole `config`, so restate every key you keep).
+#
+# Row defaults are deliberately conservative: nothing runs until a session is
+# armed. `enabled: true` arms every session in the profile (use it for headless,
+# cron, and other "called in" launchers); `goalSessions: true` arms sessions that
+# already carry an active goal.
+
+- insert:
+    - id: autocontinue
+      name: dsh-autocontinue
+      config:
+        enabled: false
+        goalSessions: true
+        reviveGoals: true
+        maxGoalRevives: 5
+        maxRounds: 0
+        maxRetries: 0
+        idleDelayMs: 0
+        retryBaseDelayMs: 15000
+        retryMaxDelayMs: 300000
+        doneMarker: 'AUTOCONTINUE: DONE'
+        notices: true
